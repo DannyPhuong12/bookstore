@@ -8,26 +8,43 @@
     <h1>Add Book</h1>
 
     <form th:action="@{/save}" th:object="${book}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
         <div>
-            <label>Title</label>
-            <input type="text" th:field="*{title}">
+            <label>Title:</label>
+            <input type="text" th:field="*{title}" />
         </div>
+
         <div>
-            <label>Author</label>
-            <input type="text" th:field="*{author}">
+            <label>Author:</label>
+            <input type="text" th:field="*{author}" />
         </div>
+
         <div>
-            <label>Publication Year</label>
-            <input type="text" th:field="*{publicationYear}">
+            <label>Publication Year:</label>
+            <input type="text" th:field="*{publicationYear}" />
         </div>
+
         <div>
-            <label>ISBN</label>
-            <input type="text" th:field="*{isbn}">
+            <label>ISBN:</label>
+            <input type="text" th:field="*{isbn}" />
         </div>
+
         <div>
-            <label>Price</label>
-            <input type="text" th:field="*{price}">
+            <label>Price:</label>
+            <input type="text" th:field="*{price}" />
         </div>
+
+        <div>
+            <label>Category:</label>
+            <select th:field="*{category}">
+                <option th:each="category : ${categories}"
+                        th:value="${category.categoryid}"
+                        th:text="${category.name}">
+                </option>
+            </select>
+        </div>
+
         <div>
             <button type="submit">Save</button>
         </div>

@@ -1,4 +1,4 @@
-package com.example;
+package com.example.bookstore;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

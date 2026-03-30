@@ -2,6 +2,8 @@ package com.example.bookstore.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +20,7 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private List<Book> books;
 
     public Category() {
@@ -39,12 +42,12 @@ public class Category {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public List<Book> getBooks() {
         return books;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setBooks(List<Book> books) {
